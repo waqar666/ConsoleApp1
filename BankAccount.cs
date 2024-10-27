@@ -10,5 +10,7 @@ class BankAccount(decimal balance)
     }
     public decimal GetBalance() => Balance;
     protected virtual void OnbalanceChanged(EventArgs e)
-    { BalanceUpdated?.Invoke(this, e); }
+    { 
+        BalanceUpdated?.Invoke(this, e);
+    }
 }
