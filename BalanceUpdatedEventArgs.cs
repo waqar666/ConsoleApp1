@@ -1,8 +1,4 @@
-class BalanceUpdatedEventArgs : EventArgs
+class BalanceUpdatedEventArgs(decimal newbalance) : EventArgs
 {
-    private decimal NewBalance { get; set; }
-    public BalanceUpdatedEventArgs(decimal newbalance)
-    {
-        NewBalance = newbalance;
-    }
+    public decimal NewBalance { get; } = newbalance;
 }
