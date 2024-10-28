@@ -8,6 +8,11 @@ class BankAccount(decimal balance)
         Balance += amount;
         OnbalanceChanged(EventArgs.Empty);
     }
+    public void DeleteAmount(decimal amount)
+     {
+        Balance -= amount;
+        OnbalanceChanged(EventArgs.Empty);
+       }
     public decimal GetBalance() => Balance;
     protected virtual void OnbalanceChanged(EventArgs e)
     { 
