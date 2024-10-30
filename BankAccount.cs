@@ -14,15 +14,22 @@ class BankAccount(decimal balance)
         if (amount > 0)
         {
             OnbalanceIncreased(new BalanceUpdatedEventArgs(oldbal, Balance, amount));
-            logdata.Add("the old balance was {oldbal}, the new balance is {newbal}, the amount added is {amount}");
+            logdata.Add($"the old balance was {oldbal}, the new balance is {Balance}, the amount added is {amount}");
         }
         else
         {
             if (amount < 0)
             {
                 OnbalanceDecreased(new BalanceUpdatedEventArgs(oldbal, Balance, amount));
-                logdata.Add("the old balance was {oldbal}, the new balance is {newbal}, the amount deducted is {amount}");
+                logdata.Add($"the old balance was {oldbal}, the new balance is {Balance}, the amount deducted is {amount}");
             }
+        }
+    }
+    public void printlog()
+    {
+        foreach (var logdata in logdata)
+        {
+            Console.WriteLine(logdata);
         }
     }
     //  public void DeleteAmount(decimal amount)
@@ -40,3 +47,4 @@ class BankAccount(decimal balance)
         BalanceDecreased?.Invoke(this, e);
     }
 }
+
